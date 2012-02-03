@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> TechWeb >> Boston University</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    jQuery("#btnInit").click(initiate_geolocation);
+    
+});
+
+function initiate_geolocation() {
+    navigator.geolocation.getCurrentPosition(handle_geolocation_query);
+    alert("In initiate geolocation");
+}
+
+function handle_geolocation_query(position) {
+   alert("latitude" + position.coords.latitude);
+var image_url = "http://maps.google.com/maps/api/staticmap?sensor=false&center=" + position.coords.latitude + "," +
+                    position.coords.longitude + "&zoom=14&size=300x400&markers=color:blue|label:S|" +
+                    position.coords.latitude + ',' + position.coords.longitude;
+
+jQuery("#map").remove();
+jQuery(document.body).append(
+    jQuery(document.createElement("img")).attr("src", image_url).attr("id", 'map')
+);
+}
+
+
+
+</script>
+
+
+</style>
+</head> 
+<body> 
+
+<div data-role="page" id="one">
+
+	<div data-role="header">
+		<h1> BU Information Services and Technology</h1>
+                
+	</div><!-- /header -->
+        <a href="#" id="#btnInit" data-icon="arrow-r" data-role="button">My Location</a>
+
+        <div id="map"></div>
+	<div data-role="content" >
+                
+		<div href="#" data-role="collapsible" >
+                    <h3>Accounts & Network Access</h3>
+                        <!--example of CSS Sprite-->
+                         <div style="width:25px; height:25px; overflow:hidden; position:relative;">
+                        <img class="target" src="images/mobile-icon1.jpg" width="100" height="100" style="position: absolute; top:0px; left:0;" />
+                         </div>
+    
+                        <div style="width:25px; height:25px; overflow:hidden; position:relative;">
+                        <img class="target" src="images/mobile-icon1.jpg" width="100" height="100" style="position: absolute; top:-72px; left:0px;" />
+                        </div>
+    
+                         <div style="width:25px; height:25px; overflow:hidden; position:relative;">
+                          <img class="target" src="images/mobile-icon1.jpg" width="100" height="100" style="position: absolute; top:-26px; left:-74px;" />                         </div>
+                </div>	
+		<div href="#" data-role="collapsible" ><h3>Communications and Collaborations</h3>
+                <ul>
+                <li><a>E-mail</a></li>
+                <li>Telephone</li>
+                <li>Mobile Services</li>
+                <li>Conferencing</li>
+                <li>Audio/Visual Services</a>
+                
+                
+                </div>
+                
+
+                <a href="#" data-role="button"	data-icon="arrow-r" data-iconpos="right">Desktop Computing & Printing</a>	
+		<p><a href="#two" data-role="button" data-icon="arrow-r" data-iconpos="right">Websites</a></p>	
+		<a href="#popup" data-role="button" data-rel="dialog"	data-transition="pop" data-icon="arrow-r" data-iconpos="right">Instructional Support</a>	
+		<a href="#" data-role="button"	data-icon="arrow-r" data-iconpos="right">Research Computing</a>	
+		<a href="#" data-role="button"	data-icon="arrow-r" data-iconpos="right">Application Services</a>	
+		<a href="#" data-role="button"	data-icon="arrow-r" data-iconpos="right">Insfrastructure</a>	
+		<a href="#" data-role="button"	data-icon="arrow-r" data-iconpos="right">Security</a>	
+                
+        
+        </div><!-- /content -->
+
+</div><!-- /page -->
+
+<!-- Start of second page: #two -->
+<div data-role="page" id="two" data-theme="a">
+
+	<div data-role="header">
+		<h1>Websites</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="a">	
+		<ul>
+                    <li>Department Sites</li>
+                    <li>Course Sites</li>
+                    <li>Research Sites</li>
+                    <li>ePortfolio Sites</li>
+                    <li>Personal Sites</li>
+                </ul>
+                    
+		<p><a href="#one" data-direction="reverse" data-role="button" data-theme="b">Back to page "one"</a></p>	
+		
+	</div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>Copyright Nidhi Tare</h4>
+	</div><!-- /footer -->
+</div><!-- /page two -->
+
+
+<!-- Start of third page: #popup -->
+<div data-role="page" id="popup">
+
+	<div data-role="header" data-theme="e">
+		<h1>Dialog</h1>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="d">	
+	    <a href="#" data-role="button"	data-icon="arrow-r" data-iconpos="right">Classroom Support</a>	
+            <a href="#" data-role="button"	data-icon="arrow-r" data-iconpos="right">Courses Sites</a>	
+	    <a href="#" data-role="button"	data-icon="arrow-r" data-iconpos="right">Scanning & Scoring Services</a>	
+	    <a href="#" data-role="button"	data-icon="arrow-r" data-iconpos="right">Faculty Link</a>	
+
+        </div><!-- /content -->
+	
+	<div data-role="footer">
+		<h4>Copyright NidhiTare</h4>
+	</div><!-- /footer -->
+</div><!-- /page popup -->
+
+</body>
+</html>
